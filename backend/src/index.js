@@ -1,7 +1,12 @@
 const express = require('express');
+const routes = require('./routes');
 
 const app = express();
-app.use(express.json())
+
+app.use(express.json());
+app.use(routes)
+
+app.listen(3333); 
 
 /**
  * Rota / Recurso
@@ -22,16 +27,3 @@ app.use(express.json())
    * Route Params : Parâmetros utilizados para identificar recursos.
    * Request Body : 
    */
-
-app.get('/', (request, response) => {
-    return request.send('Hello World');
-});
-
-app.post('/users', (request, response) => {
-    const params = request.body
-
-    console.log(params);
-    return response.json({event:'Semana Oministack 11.0', student: 'Mel'})
-});
-
-app.listen(3333); 
