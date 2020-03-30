@@ -1,0 +1,19 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder}\\backend/src/database/db.sqlite",
+            "dialect": "SQLite",
+            "isActive": false,
+            "isConnected": false,
+            "name": "BeTheHero"
+        },
+        {
+            "database": ".\\backend/src/database/db.sqlite",
+            "dialect": "SQLite",
+            "isActive": true,
+            "isConnected": true,
+            "name": "BeTheHero"
+        }
+    ]
+}
