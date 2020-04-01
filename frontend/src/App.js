@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Header from './Header';
+import Routes from './routes';
+import './Global.css'
 
 function App() {
+
   return (
-    <h1>Hello World</h1>
+    <Routes/>
   );
 }
 
