@@ -4,12 +4,18 @@ const connection = require('../../src/database/connection');
 
 describe('ONG', () => {
 
-    beforeEach(() => {
-        connection.migrate();
+    beforeEach( async () => {
+        await connection.migrate.rollback();
+        await connection.migrate.latest();
     });
+
+    afterAll(async() => {
+        await connection.destroy();
+    })
+
     it('should be able to create a new ONG', async () => {
         const response = await request(app)
-        .post('/ong')
+        .post('/ongs')
         .send({
             name: 'Apda 2',
             email: 'melisse@gmail.com',
@@ -18,6 +24,8 @@ describe('ONG', () => {
             uf: 'PI'
         }); 
 
-
+        expect(response.body).toHaveProperty('id');
+        expect(response.body.id).toHaveLength(8);
     });
-})
+    
+});
